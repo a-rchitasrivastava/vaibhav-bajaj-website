@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A special birthday website made with love for Vaibhav Bajaj — my Suar 🐷❤️" />
+  <title>Happy Birthday, Vaibhav! 🎂❤️</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400;700&family=Crimson+Text:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       FLOATING HEARTS (global background)
+  ═══════════════════════════════════════════════ -->
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       MUSIC PLAYER
+  ═══════════════════════════════════════════════ -->
+  <div id="music-player" aria-label="Music player">
+    <button id="music-toggle" aria-label="Play or pause music">
+      <span id="music-icon">▶</span>
+      <span id="music-label">Our Song</span>
+    </button>
+    <audio id="bg-music" loop></audio>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 1 — WELCOME
+  ═══════════════════════════════════════════════ -->
+  <section id="welcome" class="section">
+    <div class="welcome-content">
+      <!-- Teddy bear SVG illustration -->
+      <div class="teddy-wrap" aria-hidden="true">
+        <svg class="teddy-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- ears -->
+          <circle cx="55" cy="52" r="24" fill="#D4A0A0"/>
+          <circle cx="145" cy="52" r="24" fill="#D4A0A0"/>
+          <circle cx="55" cy="52" r="14" fill="#E8C0C0"/>
+          <circle cx="145" cy="52" r="14" fill="#E8C0C0"/>
+          <!-- head -->
+          <circle cx="100" cy="80" r="52" fill="#D4A0A0"/>
+          <!-- snout -->
+          <ellipse cx="100" cy="96" rx="22" ry="16" fill="#E8C0C0"/>
+          <!-- nose -->
+          <ellipse cx="100" cy="88" rx="8" ry="6" fill="#831D3D"/>
+          <!-- eyes -->
+          <circle cx="82" cy="70" r="7" fill="white"/>
+          <circle cx="118" cy="70" r="7" fill="white"/>
+          <circle cx="84" cy="70" r="4" fill="#2d1a1a"/>
+          <circle cx="120" cy="70" r="4" fill="#2d1a1a"/>
+          <circle cx="85" cy="69" r="1.5" fill="white"/>
+          <circle cx="121" cy="69" r="1.5" fill="white"/>
+          <!-- smile -->
+          <path d="M87 100 Q100 112 113 100" stroke="#831D3D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- body -->
+          <ellipse cx="100" cy="175" rx="50" ry="45" fill="#D4A0A0"/>
+          <!-- tummy -->
+          <ellipse cx="100" cy="175" rx="30" ry="28" fill="#E8C0C0"/>
+          <!-- arms -->
+          <ellipse cx="45" cy="160" rx="18" ry="10" fill="#D4A0A0" transform="rotate(-30 45 160)"/>
+          <ellipse cx="155" cy="160" rx="18" ry="10" fill="#D4A0A0" transform="rotate(30 155 160)"/>
+          <!-- legs -->
+          <ellipse cx="75" cy="210" rx="18" ry="12" fill="#D4A0A0"/>
+          <ellipse cx="125" cy="210" rx="18" ry="12" fill="#D4A0A0"/>
+          <!-- heart on tummy -->
+          <path d="M94 170 C94 167 90 164 90 168 C90 171 94 175 94 175 C94 175 98 171 98 168 C98 164 94 167 94 170Z" fill="#831D3D" transform="scale(1.4) translate(-35 -50)"/>
+          <!-- bow -->
+          <path d="M82 128 Q100 120 118 128 Q100 136 82 128Z" fill="#EBA8BF"/>
+          <circle cx="100" cy="128" r="5" fill="#831D3D"/>
+        </svg>
+      </div>
+
+      <!-- Envelope animation -->
+      <div class="envelope-wrap" aria-hidden="true">
+        <div class="envelope">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <span class="envelope-heart">❤️</span>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="welcome-heading">Hey, Mr. Vaibhav Bajaj! ❤️</h1>
+      <p class="welcome-subtitle">Someone made a little world just for you.</p>
+
+      <button id="open-surprise-btn" class="btn-primary pulse-btn" aria-label="Open your surprise">
+        Open Your Surprise 🎁
+      </button>
+    </div>
+
+    <!-- sparkles -->
+    <div class="sparkles" aria-hidden="true">
+      <span class="sparkle">✨</span><span class="sparkle">✨</span>
+      <span class="sparkle">✨</span><span class="sparkle">🌸</span>
+      <span class="sparkle">🌸</span><span class="sparkle">✨</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN CONTENT (revealed after button click)
+  ═══════════════════════════════════════════════ -->
+  <main id="main-content" class="hidden-main">
+
+    <!-- NAV -->
+    <nav id="main-nav" aria-label="Website navigation">
+      <div class="nav-inner">
+        <span class="nav-brand">🌸 Vaibhav's World</span>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#counter-section">⏳ Counter</a></li>
+          <li><a href="#quiz-section">💗 Quiz</a></li>
+          <li><a href="#memories-section">📸 Memories</a></li>
+          <li><a href="#reasons-section">❤️ Reasons</a></li>
+          <li><a href="#letter-section">💌 Letter</a></li>
+          <li><a href="#future-section">🌠 Future</a></li>
+          <li><a href="#birthday-section">🎂 Birthday</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 2 — RELATIONSHIP COUNTER
+    ───────────────────────────────────────── -->
+    <section id="counter-section" class="section section-pink">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">💕</div>
+        <h2 class="section-heading">Every Second With You Is Special</h2>
+        <p class="section-sub">Together since <strong>7 September 2025</strong> 🌹</p>
+
+        <div class="counter-grid" id="love-counter" aria-live="polite" aria-label="Relationship duration counter">
+          <div class="counter-card">
+            <span class="counter-num" id="cnt-days">0</span>
+            <span class="counter-label">Days</span>
+          </div>
+          <div class="counter-card">
+            <span class="counter-num" id="cnt-hours">0</span>
+            <span class="counter-label">Hours</span>
+          </div>
+          <div class="counter-card">
+            <span class="counter-num" id="cnt-mins">0</span>
+            <span class="counter-label">Minutes</span>
+          </div>
+          <div class="counter-card">
+            <span class="counter-num" id="cnt-secs">0</span>
+            <span class="counter-label">Seconds</span>
+          </div>
+        </div>
+
+        <p class="counter-poem">
+          "In a world full of moments, every one with you is my favourite." 🌸
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 3 — LOVE QUIZ
+    ───────────────────────────────────────── -->
+    <section id="quiz-section" class="section section-white">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">💗</div>
+        <h2 class="section-heading">How Well Do You Know Your Girl? 💗</h2>
+        <p class="section-sub">20 questions. No cheating. Good luck, Suar! 🐷</p>
+
+        <div class="quiz-container" id="quiz-box">
+          <!-- Progress bar -->
+          <div class="quiz-progress-wrap">
+            <div class="quiz-progress-bar" id="quiz-progress"></div>
+          </div>
+          <p class="quiz-progress-text" id="quiz-progress-text">Question 1 of 20</p>
+
+          <!-- Question card -->
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-emoji" id="quiz-emoji">🌸</div>
+            <p class="quiz-question" id="quiz-question">Loading…</p>
+            <div class="quiz-options" id="quiz-options"></div>
+            <p class="quiz-fun-note hidden" id="quiz-fun-note"></p>
+          </div>
+
+          <!-- Feedback -->
+          <div class="quiz-feedback hidden" id="quiz-feedback">
+            <span id="quiz-feedback-icon"></span>
+            <span id="quiz-feedback-text"></span>
+          </div>
+
+          <!-- Result screen -->
+          <div class="quiz-result hidden" id="quiz-result">
+            <div class="result-emoji" id="result-emoji">🎉</div>
+            <h3 class="result-heading" id="result-heading">Your Score</h3>
+            <p class="result-score" id="result-score"></p>
+            <p class="result-msg" id="result-msg"></p>
+            <button class="btn-primary" id="quiz-replay-btn">Play Again 🔄</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 4 — MEMORIES / GALLERY
+    ───────────────────────────────────────── -->
+    <section id="memories-section" class="section section-pink">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">📸</div>
+        <h2 class="section-heading">Our Memories 📸</h2>
+        <p class="section-sub">Every photograph is a little treasure. 💕</p>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Dynamically inserted by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close photo">✕</button>
+      <div class="lightbox-inner">
+        <img id="lightbox-img" src="" alt="" />
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+        <p id="lightbox-note" class="lightbox-note"></p>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 5 — 21 REASONS
+    ───────────────────────────────────────── -->
+    <section id="reasons-section" class="section section-white">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">❤️</div>
+        <h2 class="section-heading">21 Reasons Why I Love You ❤️</h2>
+        <p class="section-sub">Click each heart to reveal a reason. 🌸</p>
+
+        <div class="reasons-grid" id="reasons-grid">
+          <!-- Dynamically inserted by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 6 — SECRET LOVE LETTER
+    ───────────────────────────────────────── -->
+    <section id="letter-section" class="section section-pink">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">💌</div>
+        <h2 class="section-heading">A Secret Note For You 💌</h2>
+        <p class="section-sub">Something just for your eyes. 🌹</p>
+
+        <div class="letter-envelope-wrap" id="letter-envelope-wrap">
+          <div class="letter-envelope" id="letter-envelope" role="button" tabindex="0" aria-label="Open love letter" aria-expanded="false">
+            <div class="letter-flap" id="letter-flap"></div>
+            <div class="letter-body-env">
+              <div class="letter-seal">💌</div>
+              <p class="letter-tap-hint">Tap to open ✨</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="letter-paper hidden" id="letter-paper">
+          <div class="letter-content" id="letter-content">
+            <!-- Dynamically filled by script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 7 — OUR FUTURE
+    ───────────────────────────────────────── -->
+    <section id="future-section" class="section section-white">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">🌠</div>
+        <h2 class="section-heading">Our Little Dreams Together 🌠</h2>
+        <p class="section-sub">Every dream is better when it's ours. 💕</p>
+
+        <div class="future-grid" id="future-grid">
+          <!-- Dynamically inserted by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────
+         SECTION 8 — BIRTHDAY SURPRISE
+    ───────────────────────────────────────── -->
+    <section id="birthday-section" class="section section-pink">
+      <div class="section-inner">
+        <div class="section-deco" aria-hidden="true">🎂</div>
+        <h2 class="section-heading birthday-sparkle">Happy Birthday, My Suar! 🐷❤️</h2>
+        <p class="section-sub">Today the whole universe celebrates you. 🌟</p>
+
+        <!-- Birthday Cake -->
+        <div class="cake-wrap" id="cake-wrap" aria-label="Birthday cake with candles">
+          <div class="cake">
+            <!-- Candles -->
+            <div class="candles-row" id="candles-row">
+              <div class="candle" data-lit="true"><div class="flame"></div><div class="candle-body"></div></div>
+              <div class="candle" data-lit="true"><div class="flame"></div><div class="candle-body"></div></div>
+              <div class="candle" data-lit="true"><div class="flame"></div><div class="candle-body"></div></div>
+              <div class="candle" data-lit="true"><div class="flame"></div><div class="candle-body"></div></div>
+              <div class="candle" data-lit="true"><div class="flame"></div><div class="candle-body"></div></div>
+            </div>
+            <!-- Cake tiers -->
+            <div class="cake-tier tier-top">
+              <span class="cake-deco">🌸🌸🌸</span>
+            </div>
+            <div class="cake-tier tier-mid">
+              <span class="cake-deco">❤️ Happy Birthday ❤️</span>
+            </div>
+            <div class="cake-tier tier-bot">
+              <span class="cake-deco">🎀🌸🎀</span>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+          <p class="cake-hint" id="cake-hint">Click the candles to blow them out! 🕯️</p>
+        </div>
+
+        <div class="birthday-msg-wrap">
+          <p class="birthday-final-msg">
+            "If I could choose again, in every lifetime,<br/>
+            I would still choose you." 💕
+          </p>
+        </div>
+
+        <div class="birthday-wishes-grid">
+          <div class="wish-card">🎂 May every wish you make today come true!</div>
+          <div class="wish-card">🌟 You deserve all the happiness in the world.</div>
+          <div class="wish-card">💕 Today is about you — and I'm so glad you exist.</div>
+          <div class="wish-card">🐷 Happy Birthday, my favourite Suar! Forever mine. ❤️</div>
+        </div>
+
+        <button class="btn-primary" id="confetti-btn">🎉 Celebrate Again!</button>
+        <button class="btn-secondary" id="relight-btn">🕯️ Relight Candles</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Made with every bit of love I have — for you, always. 🌸❤️</p>
+      <p class="footer-sig">— Your Girl 💌</p>
+    </footer>
+
+  </main>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scripts (content first, then logic) -->
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
